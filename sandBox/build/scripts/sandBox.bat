@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\sandBox.jar
 
 
 @rem Execute sandBox
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SAND_BOX_OPTS%  -classpath "%CLASSPATH%" MyFirstProgram %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %SAND_BOX_OPTS%  -classpath "%CLASSPATH%" ru.neoflex.AQA.MyFirstProgram %*
 
 :end
 @rem End local scope for the variables with windows NT shell
