@@ -11,6 +11,15 @@ public class ContactHelper extends HelperBase{
         super(wd);
     }
 
+    public void selectContact(){
+        click(By.xpath("//td[@class='center']/input"));
+    }
+
+    public void deleteContact(){
+        click(By.xpath("//input[@value='Delete']"));
+        wd.switchTo().alert().accept();
+    }
+
     public void fillContactForm(ContactData contactData) {
         type(By.name("firstname"), contactData.getfName());
         type(By.name("middlename"), contactData.getmName());
@@ -33,7 +42,11 @@ public class ContactHelper extends HelperBase{
         choiceList(By.name("aday"), "//select[@name='aday']/option[@value='" + contactData.getAday() + "']", contactData.getAday());
         choiceList(By.name("amonth"), "//select[@name='amonth']/option[@value='" + contactData.getAmounth() + "']", contactData.getAmounth());
         type(By.name("ayear"), contactData.getaYear());
-        choiceList(By.name("new_group"), "//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']", contactData.getGroup());
+        try {
+            choiceList(By.name("new_group"), "//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']", contactData.getGroup());
+        }catch (Exception e){
+
+        };
         type(By.name("address2"), contactData.getAddres2());
         type(By.name("phone2"), contactData.getPhone2());
         type(By.name("notes"), contactData.getNotes());
@@ -61,5 +74,13 @@ public class ContactHelper extends HelperBase{
 
     public void click(By locator) {
         wd.findElement(locator).click();
+    }
+
+    public void editContact() {
+        click(By.xpath("//img[@title='Edit']/.."));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
     }
 }

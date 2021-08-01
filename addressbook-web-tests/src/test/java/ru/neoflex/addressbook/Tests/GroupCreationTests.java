@@ -7,7 +7,7 @@ import ru.neoflex.addressbook.Model.TestBase;
 
 public class GroupCreationTests extends TestBase {
 
-    @Test(priority = 1)
+    @Test
     public void testGroupCreation() throws Exception {
         app.getNavigationHelper().goToGroupPage();
         app.getGroupHelper().initGroupCreation();

@@ -5,7 +5,7 @@ import ru.neoflex.addressbook.Model.TestBase;
 
 public class GroupDeletionTests extends TestBase {
 
-    @Test(priority = 3)
+    @Test
     public void GroupDeletionTests() throws Exception {
         app.getNavigationHelper().goToGroupPage();
         app.getGroupHelper().selectGroup();

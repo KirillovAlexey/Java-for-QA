@@ -1,31 +1,35 @@
 package ru.neoflex.addressbook.Model;
 
 public class ContactData {
-    private final String fName;
-    private final String mName;
-    private final String lName;
-    private final String nickName;
-    private final String title;
-    private final String company;
-    private final String address;
-    private final String homePpone;
-    private final String mobilePhone;
-    private final String workPhone;
-    private final String fax;
-    private final String email1;
-    private final String email2;
-    private final String email3;
-    private final String homePage;
-    private final String bDay;
-    private final String bMonth;
-    private final String bYear;
-    private final String aday;
-    private final String amounth;
-    private final String aYear;
-    private final String group;
-    private final String addres2;
-    private final String phone2;
-    private final String notes;
+    private static String fName;
+    private static String mName;
+    private String lName;
+    private String nickName;
+    private String title;
+    private String company;
+    private String address;
+    private String homePpone;
+    private String mobilePhone;
+    private String workPhone;
+    private String fax;
+    private String email1;
+    private String email2;
+    private String email3;
+    private String homePage;
+    private String bDay;
+    private String bMonth;
+    private String bYear;
+    private String aday;
+    private String amounth;
+    private String aYear;
+    private String group;
+    private String addres2;
+    private String phone2;
+    private String notes;
+
+    public ContactData(String mName) {
+        this.mName = mName;
+    }
 
     public ContactData(String fName, String mName, String lName, String nickName, String title, String company, String address, String homePpone,
                        String mobilePhone, String workPhone, String fax, String email1, String email2, String email3, String homePage, String bDay,
