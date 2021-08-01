@@ -1,4 +1,4 @@
-package ru.neoflex.addressbook;
+package ru.neoflex.addressbook.Model;
 
 public class GroupData {
     private final String name;
@@ -10,6 +10,7 @@ public class GroupData {
         this.header = header;
         this.footer = footer;
     }
+
     public GroupData(String name, String header) {
         this.name = name;
         this.header = header;

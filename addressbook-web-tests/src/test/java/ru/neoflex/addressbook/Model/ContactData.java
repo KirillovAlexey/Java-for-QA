@@ -1,4 +1,4 @@
-package ru.neoflex.addressbook;
+package ru.neoflex.addressbook.Model;
 
 public class ContactData {
     private final String fName;
