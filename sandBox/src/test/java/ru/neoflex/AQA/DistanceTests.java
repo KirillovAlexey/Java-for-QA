@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 import java.awt.*;
 import java.awt.geom.Point2D;
 
-public class Tests {
+public class DistanceTests {
 
     @Test(description = "Проверка расстояния между точками")
     public void Distance(){

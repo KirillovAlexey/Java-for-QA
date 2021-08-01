@@ -1,5 +1,0 @@
-environment=dev
-browser=ff
-path.chrome=drivers/chromedriver.exe
-path.ie=drivers/IEDriverServer.exe
-path.ff=drivers/geckodriver.exe
