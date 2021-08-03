@@ -27,10 +27,6 @@ public class ContactData {
     private String phone2;
     private String notes;
 
-    public ContactData(String mName) {
-        this.mName = mName;
-    }
-
     public ContactData(String fName, String mName, String lName, String nickName, String title, String company, String address, String homePpone,
                        String mobilePhone, String workPhone, String fax, String email1, String email2, String email3, String homePage, String bDay,
                        String bMonth, String bYear, String aday, String amounth, String aYear, String group, String addres2, String phone2, String notes) {

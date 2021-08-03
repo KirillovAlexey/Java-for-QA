@@ -3,24 +3,25 @@ package ru.neoflex.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.neoflex.addressbook.Model.ContactData;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
-    public void selectContact(){
+    public void selectContact() {
         click(By.xpath("//td[@class='center']/input"));
     }
 
-    public void deleteContact(){
+    public void deleteContact() {
         click(By.xpath("//input[@value='Delete']"));
         wd.switchTo().alert().accept();
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getfName());
         type(By.name("middlename"), contactData.getmName());
         type(By.name("lastname"), contactData.getlName());
@@ -42,26 +43,20 @@ public class ContactHelper extends HelperBase{
         choiceList(By.name("aday"), "//select[@name='aday']/option[@value='" + contactData.getAday() + "']", contactData.getAday());
         choiceList(By.name("amonth"), "//select[@name='amonth']/option[@value='" + contactData.getAmounth() + "']", contactData.getAmounth());
         type(By.name("ayear"), contactData.getaYear());
-        try {
-            choiceList(By.name("new_group"), "//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']", contactData.getGroup());
-        }catch (Exception e){
-
-        };
+        choiceList(By.name("new_group"), "//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']", contactData.getGroup());
         type(By.name("address2"), contactData.getAddres2());
         type(By.name("phone2"), contactData.getPhone2());
         type(By.name("notes"), contactData.getNotes());
     }
 
     private void choiceList(By locator, String xPath, String param) {
-        click(locator);
-        new Select(wd.findElement(locator)).selectByVisibleText(param);
-        click(By.xpath(xPath));
-    }
-
-    public void type(By locator, String text) {
-        click(locator);
-        wd.findElement(locator).clear();
-        wd.findElement(locator).sendKeys(text);
+        if (!xPath.contains("null")) {
+            new Select(wd.findElement(locator)).selectByVisibleText(param);
+            click(By.xpath(xPath));
+        }
+        else {
+            Assert.assertFalse(isElementPresent(By.xpath(xPath)));
+        }
     }
 
     public void returnToHomePage() {
@@ -70,10 +65,6 @@ public class ContactHelper extends HelperBase{
 
     public void submitContactCreation() {
         click(By.name("submit"));
-    }
-
-    public void click(By locator) {
-        wd.findElement(locator).click();
     }
 
     public void editContact() {

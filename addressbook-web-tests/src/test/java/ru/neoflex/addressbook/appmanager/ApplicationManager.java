@@ -21,21 +21,18 @@ public class ApplicationManager {
     }
 
     public void init() {
-        if(browser==BrowserType.FIREFOX){
+        if(browser.equals(BrowserType.FIREFOX)){
             System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
             wd = new FirefoxDriver();
         }
-        else if(browser==BrowserType.CHROME){
+        else if(browser.equals(BrowserType.CHROME)){
             System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
             wd = new ChromeDriver();
         }
-        else if(browser==BrowserType.IE){
+        else if(browser.equals(BrowserType.IE)){
             System.setProperty("webdriver.ie.driver", "drivers/IEDriverServer.exe");
             wd = new InternetExplorerDriver();
         }
-
-        //System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-        //wd = new FirefoxDriver();
         wd.get("http://localhost/addressbook/");
         groupHelper = new GroupHelper(wd);
         contactHelper = new ContactHelper(wd);
