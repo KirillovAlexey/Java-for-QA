@@ -11,12 +11,6 @@ public class GroupData {
         this.footer = footer;
     }
 
-    public GroupData(String name, String header) {
-        this.name = name;
-        this.header = header;
-        footer = null;
-    }
-
     public String getName() {
         return name;
     }

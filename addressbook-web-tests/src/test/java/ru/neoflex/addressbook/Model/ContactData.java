@@ -1,8 +1,8 @@
 package ru.neoflex.addressbook.Model;
 
 public class ContactData {
-    private static String fName;
-    private static String mName;
+    private String fName;
+    private String mName;
     private String lName;
     private String nickName;
     private String title;

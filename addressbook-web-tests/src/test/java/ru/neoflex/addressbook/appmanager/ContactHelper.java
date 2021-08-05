@@ -21,7 +21,7 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().alert().accept();
     }
 
-    public void fillContactForm(ContactData contactData, boolean creation) {
+    public void fillContactForm(ContactData contactData) {
         type(By.name("firstname"), contactData.getfName());
         type(By.name("middlename"), contactData.getmName());
         type(By.name("lastname"), contactData.getlName());
@@ -73,5 +73,15 @@ public class ContactHelper extends HelperBase {
 
     public void submitContactModification() {
         click(By.name("update"));
+    }
+
+    public void createContact(ContactData contact) {
+        new NavigationHelper(wd).goToContactCreatePage();
+        fillContactForm(contact);
+        submitContactCreation();
+    }
+
+    public boolean isThereAcontact() {
+        return isElementPresent(By.xpath("//td[@class='center']/input"));
     }
 }
